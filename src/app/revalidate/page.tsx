@@ -43,7 +43,8 @@ const loadThing = async ({ id }: { id: string }) => {
       console.log('loadThing', id)
       const title = `Thing ${id}`
       const createdAt = new Date().toISOString()
-      return { id, title, createdAt }
+      const randomNumber = Math.floor(Math.random() * 10 ** 9)
+      return { id, title, createdAt, randomNumber }
     },
     ['loadThing', id],
     {
@@ -64,7 +65,13 @@ const Thing = async ({ id }: { id: string }) => {
       <button type="submit" className="text-left w-full">
         <Card
           title={thing.title}
-          description={<LocalDateTime datetime={thing.createdAt} />}
+          description={
+            <>
+              <LocalDateTime datetime={thing.createdAt} />
+              <br />
+              Random Number: {thing.randomNumber}
+            </>
+          }
           code={`revalidateTag('thing-${id}')`}
           comments={[
             '✅ Only triggers loadThing for this thing. Show new data in client.',
