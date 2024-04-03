@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import { Card } from '../Card'
 
 export default function Page() {
@@ -9,9 +10,25 @@ export default function Page() {
       <Link href="/suspense-navigation/target">
         <Card
           title="next/link"
-          description={`Using <Link href="/suspense-navigation/target">`}
+          code={`<Link href="/suspense-navigation/target">`}
         />
       </Link>
+      <form
+        action={async () => {
+          'use server'
+          redirect('/suspense-navigation/target')
+        }}
+      >
+        <button type="submit" className="text-left w-full">
+          <Card
+            title="Server Action redirect()"
+            code={`async () => {
+  'use server'
+  redirect('/suspense-navigation/target')
+}}`}
+          />
+        </button>
+      </form>
     </>
   )
 }
