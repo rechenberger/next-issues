@@ -11,7 +11,9 @@ export default function Page() {
         <Card
           title="next/link"
           code={`<Link href="/suspense-navigation/target">`}
-          comments={['✅ Navigates immediately. Show Suspenses while loading.']}
+          comments={[
+            '✅ Navigates immediately. Shows suspense fallbacks while loading.',
+          ]}
         />
       </Link>
       <form
@@ -28,8 +30,8 @@ export default function Page() {
   redirect('/suspense-navigation/target')
 }}`}
             comments={[
-              '✅ Dev Mode: Navigates immediately. Show Suspenses while loading.',
-              '✅ Local Build: Navigates immediately. Show Suspenses while loading.',
+              '✅ Dev Mode: Navigates immediately. Shows suspense fallbacks while loading.',
+              '✅ Local Build: Navigates immediately. Shows suspense fallbacks while loading.',
               '❌ Vercel: Does not navigate immediately, but waits for all suspenses to resolve.',
             ]}
           />
