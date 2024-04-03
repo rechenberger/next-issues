@@ -5,7 +5,7 @@ import { Card } from '../Card'
 export default function Page() {
   return (
     <>
-      <Link href="/">Go Home</Link>
+      <Link href="/">Back to all issues</Link>
       <h1 className="text-xl font-semibold">Suspense Navigation</h1>
       <Link href="/suspense-navigation/target">
         <Card
