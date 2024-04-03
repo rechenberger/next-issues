@@ -17,11 +17,14 @@ export default function Page() {
           revalidatePath(`/revalidate`)
         }}
       >
-        <button
-          type="submit"
-          className="border border-gray-500 px-2 py-1 rounded"
-        >
-          {'revalidatePath(`/revalidate`)'}
+        <button type="submit" className="text-left w-full">
+          <Card
+            title={'Revalidate Page'}
+            code={'revalidatePath(`/revalidate`)'}
+            comments={[
+              '✅ Triggers all for this page. Show new data in client.',
+            ]}
+          />
         </button>
       </form>
     </>
@@ -52,23 +55,22 @@ const loadThing = async ({ id }: { id: string }) => {
 const Thing = async ({ id }: { id: string }) => {
   const thing = await loadThing({ id })
   return (
-    <Card
-      title={thing.title}
-      description={<LocalDateTime datetime={thing.createdAt} />}
+    <form
+      action={async () => {
+        'use server'
+        revalidateTag(`thing-${id}`)
+      }}
     >
-      <form
-        action={async () => {
-          'use server'
-          revalidateTag(`thing-${id}`)
-        }}
-      >
-        <button
-          type="submit"
-          className="border border-gray-500 px-2 py-1 rounded"
-        >
-          revalidateTag(`thing-{id}`)
-        </button>
-      </form>
-    </Card>
+      <button type="submit" className="text-left w-full">
+        <Card
+          title={thing.title}
+          description={<LocalDateTime datetime={thing.createdAt} />}
+          code={'revalidateTag(`thing-{id}`)'}
+          comments={[
+            '✅ Only triggers loadThing for this thing. Show new data in client.',
+          ]}
+        />
+      </button>
+    </form>
   )
 }
