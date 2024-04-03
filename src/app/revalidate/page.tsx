@@ -20,7 +20,7 @@ export default function Page() {
         <button type="submit" className="text-left w-full">
           <Card
             title={'Revalidate Page'}
-            code={'revalidatePath(`/revalidate`)'}
+            code={`revalidatePath('/revalidate')`}
             comments={[
               '✅ Triggers all for this page. Show new data in client.',
             ]}
@@ -65,7 +65,7 @@ const Thing = async ({ id }: { id: string }) => {
         <Card
           title={thing.title}
           description={<LocalDateTime datetime={thing.createdAt} />}
-          code={'revalidateTag(`thing-{id}`)'}
+          code={`revalidateTag('thing-${id}')`}
           comments={[
             '✅ Only triggers loadThing for this thing. Show new data in client.',
           ]}
