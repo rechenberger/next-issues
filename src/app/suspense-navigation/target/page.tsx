@@ -13,7 +13,7 @@ export default function Page() {
   )
 }
 
-export const SlowComponentSuspended = ({ ms = 2000 }: { ms?: number }) => {
+const SlowComponentSuspended = ({ ms = 2000 }: { ms?: number }) => {
   return (
     <Suspense
       fallback={
@@ -25,7 +25,7 @@ export const SlowComponentSuspended = ({ ms = 2000 }: { ms?: number }) => {
   )
 }
 
-export const SlowComponent = async ({ ms }: { ms: number }) => {
+const SlowComponent = async ({ ms }: { ms: number }) => {
   await new Promise((resolve) => setTimeout(resolve, ms))
   return <div>SlowComponent ({ms}ms) done</div>
 }
