@@ -24,6 +24,12 @@ export default function Page() {
           description="A simple example of navigation with suspense"
         />
       </Link>
+      <Link href="/revalidate">
+        <Card
+          title="Revalidate"
+          description="revalidatePath, revalidateTag, unstable_cache"
+        />
+      </Link>
     </>
   )
 }

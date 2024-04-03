@@ -5,11 +5,13 @@ export const Card = ({
   description,
   code,
   comments,
+  children,
 }: {
   title?: ReactNode
   description?: ReactNode
   code?: ReactNode
   comments?: ReactNode[]
+  children?: ReactNode
 }) => {
   return (
     <>
@@ -17,6 +19,7 @@ export const Card = ({
         {!!title && <div className="text-xl font-semibold">{title}</div>}
         {!!description && <div className="opacity-80">{description}</div>}
         {!!code && <pre className="opacity-80 font-mono text-sm">{code}</pre>}
+        {children}
         {!!comments && (
           <div className="opacity-80 mt-4 flex flex-col gap-1">
             {comments.map((c, idx) => (
