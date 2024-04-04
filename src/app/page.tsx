@@ -30,6 +30,9 @@ export default function Page() {
           description="revalidatePath, revalidateTag, unstable_cache"
         />
       </Link>
+      <Link href="/server-action-components">
+        <Card title="Server Action Components" />
+      </Link>
     </>
   )
 }
