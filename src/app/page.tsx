@@ -33,6 +33,12 @@ export default function Page() {
       <Link href="/server-action-components">
         <Card title="Server Action Components" />
       </Link>
+      <Link href="/unstable-kv">
+        <Card
+          title="Unstable KV"
+          description="Using unstable_cache as KV store"
+        />
+      </Link>
     </>
   )
 }
