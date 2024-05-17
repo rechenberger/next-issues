@@ -39,6 +39,11 @@ export default function Page() {
           description="Using unstable_cache as KV store"
         />
       </Link>
+      <Link href="/instant-action">
+        <Card
+          title="Instant Action"
+        />
+      </Link>
     </>
   )
 }
